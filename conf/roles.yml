@@ -1,41 +1,51 @@
-admin-lv3:
-    display_name: Administrators Level 3
-    description: Super administrators of the system
+admin-super:
+    display_name: Administrators Super Level
+    description: Administrators of all the systems
     backends_groups:
         ldap:
-            - cn=dns admins,ou=Group,dc=example,dc=org
-            - cn=nagios admins,ou=Group,dc=example,dc=org
-            - cn=puppet admins,ou=Group,dc=example,dc=org
-            - cn=users,ou=Group,dc=example,dc=org
-#        ad:
-#            - Administrators
-#            - Group Policy Creator Owners
-#            - Enterprise Admins
-#            - Schema Admins
-#            - Domain Admins
+            - cn=admin-artifactory,ou=groups,o=swarm-analytics,dc=swarm-analytics,dc=com
+            - cn=admin-jenkins,ou=groups,o=swarm-analytics,dc=swarm-analytics,dc=com
+            - cn=admin-ldap,ou=groups,o=swarm-analytics,dc=swarm-analytics,dc=com
 
-admin-lv2:
-    display_name: Administrators Level 2
-    description: Basic administrators of the system
+admin-artifactory:
+    display_name: Administrators Artifactory
+    description:  Administrators of Artifactory
+    backends_groups:
+        ldap:
+            - cn=admin-artifactory,ou=groups,o=swarm-analytics,dc=swarm-analytics,dc=com
+
+admin-jenkins:
+    display_name: Administrators Jenkins
+    description:  Administrators of Jenkins
+    backends_groups:
+        ldap:
+            - cn=admin-jenkins,ou=groups,o=swarm-analytics,dc=swarm-analytics,dc=com
+
+admin-ldap:
+    display_name: Administrators LDAP
+    description:  Administrators of the LDAP System
     LC_admins: True
     backends_groups:
         ldap:
-            - cn=nagios admins,ou=Group,dc=example,dc=org
-            - cn=users,ou=Group,dc=example,dc=org
-#        ad:
-#            - Administrators
+            - cn=admin-ldap,ou=groups,o=swarm-analytics,dc=swarm-analytics,dc=com
 
-developpers:
-    display_name: Developpers
-    description: Developpers of the system
+users-tech:
+    display_name: Users Technical
+    description: Technical users of the system
     backends_groups:
         ldap:
-            - cn=developpers,ou=Group,dc=example,dc=org
-            - cn=users,ou=Group,dc=example,dc=org
+            - cn=entities-technical,ou=groups,o=swarm-analytics,dc=swarm-analytics,dc=com
 
-users:
-    display_name: Simple Users
-    description: Basic users of the system
+users-human:
+    display_name: Users Human
+    description: Human users of the system
     backends_groups:
         ldap:
-            - cn=users,ou=Group,dc=example,dc=org
+            - cn=entities-human,ou=groups,o=swarm-analytics,dc=swarm-analytics,dc=com
+
+users-developers:
+    display_name: Users Developers
+    description: Software developers within the system
+    backends_groups:
+        ldap:
+            - cn=entities-developers,ou=groups,o=swarm-analytics,dc=swarm-analytics,dc=com
