@@ -10,6 +10,8 @@ ENV PASSWORD password
 
 RUN apk add --no-cache libldap && \
     apk add --no-cache --virtual build-dependencies build-base yaml-dev openldap-dev && \
+    pip3 install flup && \
+    apk add --no-cache bash su-exec && \
     python setup.py install && \
     apk del build-dependencies && \
     cp -v conf/* /etc/ldapcherry && \
@@ -17,5 +19,6 @@ RUN apk add --no-cache libldap && \
     rm -rf /usr/src/app
 
 USER ldapcherry
+WORKDIR /home/ldapcherry
 
-CMD ["ldapcherryd", "-c", "/etc/ldapcherry/ldapcherry.ini"]
+CMD [ "ldapcherryd", "-D", "-c", "/etc/ldapcherry/ldapcherry.ini"]
