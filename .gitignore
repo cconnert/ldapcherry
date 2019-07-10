@@ -55,3 +55,6 @@ coverage.xml
 docs/_build/
 
 ldapcherry-dev.ini
+
+# jetbrains
+**.idea/
